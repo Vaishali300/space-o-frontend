@@ -12,7 +12,6 @@ import {
 } from "../../store/store";
 import { STATUS } from "../../lib/constants";
 import type { SignInPayload } from "../../types/ auth.types";
-import { encryptPassword } from "../../utils/utils";
 import { Button, Input, Label } from "../../components";
 export const LOGIN_TEXTS = {
   header: "Sign in to Admin",
@@ -62,7 +61,7 @@ const SignInForm = () => {
     values: SignInPayload,
     { resetForm }: FormikHelpers<SignInPayload>
   ) => {
-    const encrptedPassword = encryptPassword(values.password);
+    const encrptedPassword = values.password;
     const payload: SignInPayload = {
       emailAddress: values.emailAddress,
       password: encrptedPassword,

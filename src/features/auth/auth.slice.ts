@@ -51,7 +51,7 @@ const authSlice = createSlice({
         state.authState = STATUS.REJECTED;
         Toast(action?.payload?.message, { type: "error" });
       })
-      .addCase(signInAsync.fulfilled, (state, action) => {
+      .addCase(signInAsync.fulfilled, (state, action: any) => {
         const jwtAccessToken = action?.payload?.data?.access_token;
         state.authState = STATUS.FULFILLED;
         state.isUserLoggedIn = true;
